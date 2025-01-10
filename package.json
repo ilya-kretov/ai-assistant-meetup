@@ -1,0 +1,15 @@
+{
+  "name": "vsfi-slides",
+  "version": "1.0.0",
+  "description": "Slides for VSFI 2022",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "@asciidoctor/reveal.js": "^5.1.0",
+    "asciidoctor": "^3.0.4"
+  }
+}

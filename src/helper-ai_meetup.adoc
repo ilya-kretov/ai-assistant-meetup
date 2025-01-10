@@ -1,0 +1,9 @@
+:revealjsdir: ../node_modules/reveal.js
+:revealjs_customtheme: ../theme/vsfi.css
+:revealjs_showSlideNumber: all
+:source-highlighter: highlightjs
+:highlightjs-languages: yaml, bash
+
+= ИИ помощник для разработчика
+
+Заметка для доклада на встрече по помощникам разработчика на базе ИИ
