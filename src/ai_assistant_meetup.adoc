@@ -145,19 +145,44 @@
 
 == Живая демонстрация возможностей Claude/Cline
 
-Пример простой функции поиска определенных элементов в массиве
+Работа Claude в связке с VSCode+Cline.
+Задача: написать небольшую программу, которая будет вести базу данных фильмов в коллекции.
 
-[source, java]
-----
-public List<int[]> getThem() {
-   List<int[]> list1 = new ArrayList<>();
-   for (int[] x : theList) 
-      if (x[0] == 4)
-         list1.add(x);
-   return list1;
-}
-----
+Prompt:
+```
+Using sqlite and nodejs + express write backend for handling movies DB.
+Db should contain entity "movie" with properties: 
+- title
+- year
+- awards
+- studio name
+- producer 
+- actors as a comma-separated string list
+```
 
+[.notes]
+--
+- запустить
+- попросить создать тестовую запись в базе и тут же вернуть полный список
+--
+
+=== MCP servers
+
+MCP servers предоставляют дополнительные сервисы/расширения для Claude Desktop & Cline :
+- https://github.com/modelcontextprotocol/servers?tab=readme-ov-file
+- https://github.com/punkpeye/awesome-mcp-servers?tab=readme-ov-file
+
+Например, можно с помощью MCP servers предоставить Claude read/only доступ к базе данных.
+
+[.notes]
+--
+- integration with JetBrains IDE : https://plugins.jetbrains.com/plugin/26071-mcp-server
+- Atlassian : https://github.com/sooperset/mcp-atlassian
+- PostgreSQL MCP : https://github.com/modelcontextprotocol/servers/tree/main/src/postgres
+- рассказать об опыте использования Obsidian MCP
+--
+
+[.notes]
 
 == Спасибо
 
@@ -203,3 +228,5 @@ public List<int[]> getThem() {
 - Claude сопротивляется : https://habr.com/ru/articles/869498/
 
 - Горькая правда о программировании с использованием ИИ : https://habr.com/ru/companies/spring_aio/articles/865720/
+
+- Ссылка на тикет в Youtrack AI Assistant : https://youtrack.jetbrains.com/issue/LLM-2402/Integrate-Claude.ai-LLM-models-with-AI-Assistant#focus=Change-27-11379104.0-0.pinned
