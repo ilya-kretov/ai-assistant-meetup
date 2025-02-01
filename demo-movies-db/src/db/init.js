@@ -16,7 +16,8 @@ db.serialize(() => {
             studio_name TEXT,
             producer TEXT,
             actors TEXT,
-            created_at DATETIME DEFAULT CURRENT_TIMESTAMP
+            created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+            UNIQUE(title, year)
         )
     `);
 });

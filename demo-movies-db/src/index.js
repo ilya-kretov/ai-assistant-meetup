@@ -38,6 +38,12 @@ app.post('/api/movies', async (req, res) => {
     }
 
     try {
+        // Check if movie already exists
+        const existing = await db.get('SELECT * FROM movies WHERE title = ? AND year = ?', [title, year]);
+        if (existing) {
+            return res.status(409).json({ error: 'Movie with this title and year already exists' });
+        }
+
         const result = await db.run(
             `INSERT INTO movies (title, year, awards, studio_name, producer, actors)
              VALUES (?, ?, ?, ?, ?, ?)`,
@@ -63,6 +69,15 @@ app.put('/api/movies/:id', async (req, res) => {
         const movie = await db.get('SELECT * FROM movies WHERE id = ?', [req.params.id]);
         if (!movie) {
             return res.status(404).json({ error: 'Movie not found' });
+        }
+
+        // Check if another movie exists with the same title and year
+        const existing = await db.get(
+            'SELECT * FROM movies WHERE title = ? AND year = ? AND id != ?',
+            [title, year, req.params.id]
+        );
+        if (existing) {
+            return res.status(409).json({ error: 'Another movie with this title and year already exists' });
         }
 
         await db.run(

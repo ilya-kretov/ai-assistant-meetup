@@ -40,7 +40,7 @@ Db should contain entity "movie" with properties:
 
 ```bash
 # Add a new movie
-curl -X POST http://localhost:3000/api/movies \
+curl -s -X POST http://localhost:3000/api/movies \
     -H "Content-Type: application/json" \
     -d '{
         "title": "The Matrix",
@@ -49,11 +49,17 @@ curl -X POST http://localhost:3000/api/movies \
         "studio_name": "Warner Bros.",
         "producer": "Joel Silver",
         "actors": "Keanu Reeves, Laurence Fishburne, Carrie-Anne Moss"
-    }'
+    }' | jq '.'
+
+# Get all movies
+curl -s http://localhost:3000/api/movies | jq '.'
+
+# Get specific fields with custom formatting
+curl -s http://localhost:3000/api/movies | jq '.[] | {title, year}'
 
 # Get a movie by ID
-curl http://localhost:3000/api/movies/1
+curl -s http://localhost:3000/api/movies/1 | jq '.'
 
 # Delete a movie
-curl -X DELETE http://localhost:3000/api/movies/1
+curl -s -X DELETE http://localhost:3000/api/movies/1
 ```
