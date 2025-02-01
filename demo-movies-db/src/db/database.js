@@ -1,37 +1,32 @@
-const sqlite3 = require('sqlite3').verbose();
-const path = require('path');
+const { Pool } = require('pg');
 
 class Database {
     constructor() {
-        const dbPath = path.resolve(__dirname, 'movies.db');
-        this.db = new sqlite3.Database(dbPath);
-    }
-
-    all(query, params = []) {
-        return new Promise((resolve, reject) => {
-            this.db.all(query, params, (err, rows) => {
-                if (err) reject(err);
-                else resolve(rows);
-            });
+        this.pool = new Pool({
+            user: 'postgres',
+            host: 'localhost',
+            database: 'moviesdb',
+            password: 'postgres',
+            port: 5432,
         });
     }
 
-    get(query, params = []) {
-        return new Promise((resolve, reject) => {
-            this.db.get(query, params, (err, row) => {
-                if (err) reject(err);
-                else resolve(row);
-            });
-        });
+    async all(query, params = []) {
+        const { rows } = await this.pool.query(query, params);
+        return rows;
     }
 
-    run(query, params = []) {
-        return new Promise((resolve, reject) => {
-            this.db.run(query, params, function(err) {
-                if (err) reject(err);
-                else resolve({ id: this.lastID, changes: this.changes });
-            });
-        });
+    async get(query, params = []) {
+        const { rows } = await this.pool.query(query, params);
+        return rows[0];
+    }
+
+    async run(query, params = []) {
+        const result = await this.pool.query(query, params);
+        return {
+            id: result.rows[0]?.id,
+            changes: result.rowCount
+        };
     }
 }
 

@@ -19,7 +19,7 @@ app.get('/api/movies', async (req, res) => {
 // Get a single movie by ID
 app.get('/api/movies/:id', async (req, res) => {
     try {
-        const movie = await db.get('SELECT * FROM movies WHERE id = ?', [req.params.id]);
+        const movie = await db.get('SELECT * FROM movies WHERE id = $1', [req.params.id]);
         if (!movie) {
             return res.status(404).json({ error: 'Movie not found' });
         }
@@ -39,18 +39,18 @@ app.post('/api/movies', async (req, res) => {
 
     try {
         // Check if movie already exists
-        const existing = await db.get('SELECT * FROM movies WHERE title = ? AND year = ?', [title, year]);
+        const existing = await db.get('SELECT * FROM movies WHERE title = $1 AND year = $2', [title, year]);
         if (existing) {
             return res.status(409).json({ error: 'Movie with this title and year already exists' });
         }
 
         const result = await db.run(
             `INSERT INTO movies (title, year, awards, studio_name, producer, actors)
-             VALUES (?, ?, ?, ?, ?, ?)`,
+             VALUES ($1, $2, $3, $4, $5, $6)`,
             [title, year, awards, studio_name, producer, actors]
         );
         
-        const newMovie = await db.get('SELECT * FROM movies WHERE id = ?', [result.id]);
+        const newMovie = await db.get('SELECT * FROM movies WHERE id = $1', [result.id]);
         res.status(201).json(newMovie);
     } catch (error) {
         res.status(500).json({ error: error.message });
@@ -66,14 +66,14 @@ app.put('/api/movies/:id', async (req, res) => {
     }
 
     try {
-        const movie = await db.get('SELECT * FROM movies WHERE id = ?', [req.params.id]);
+        const movie = await db.get('SELECT * FROM movies WHERE id = $1', [req.params.id]);
         if (!movie) {
             return res.status(404).json({ error: 'Movie not found' });
         }
 
         // Check if another movie exists with the same title and year
         const existing = await db.get(
-            'SELECT * FROM movies WHERE title = ? AND year = ? AND id != ?',
+            'SELECT * FROM movies WHERE title = $1 AND year = $2 AND id != $3',
             [title, year, req.params.id]
         );
         if (existing) {
@@ -82,12 +82,12 @@ app.put('/api/movies/:id', async (req, res) => {
 
         await db.run(
             `UPDATE movies 
-             SET title = ?, year = ?, awards = ?, studio_name = ?, producer = ?, actors = ?
-             WHERE id = ?`,
+             SET title = $1, year = $2, awards = $3, studio_name = $4, producer = $5, actors = $6
+             WHERE id = $7`,
             [title, year, awards, studio_name, producer, actors, req.params.id]
         );
         
-        const updatedMovie = await db.get('SELECT * FROM movies WHERE id = ?', [req.params.id]);
+        const updatedMovie = await db.get('SELECT * FROM movies WHERE id = $1', [req.params.id]);
         res.json(updatedMovie);
     } catch (error) {
         res.status(500).json({ error: error.message });
@@ -97,12 +97,12 @@ app.put('/api/movies/:id', async (req, res) => {
 // Delete a movie
 app.delete('/api/movies/:id', async (req, res) => {
     try {
-        const movie = await db.get('SELECT * FROM movies WHERE id = ?', [req.params.id]);
+        const movie = await db.get('SELECT * FROM movies WHERE id = $1', [req.params.id]);
         if (!movie) {
             return res.status(404).json({ error: 'Movie not found' });
         }
 
-        await db.run('DELETE FROM movies WHERE id = ?', [req.params.id]);
+        await db.run('DELETE FROM movies WHERE id = $1', [req.params.id]);
         res.json({ message: 'Movie deleted successfully' });
     } catch (error) {
         res.status(500).json({ error: error.message });
