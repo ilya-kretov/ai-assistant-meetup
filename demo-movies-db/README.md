@@ -12,6 +12,9 @@ Db should contain entity "movie" with properties:
 - actors as a comma-separated string list
 ```
 
+After couple of attempts to make Sqlite MCP server operate as required this was rewritten.
+Now it uses Postgres.
+
 ## How to Use
 
 1. Clone the repository
