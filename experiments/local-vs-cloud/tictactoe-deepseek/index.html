@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tic Tac Toe</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: #f0f0f0;
+        }
+
+        .game-title {
+            color: #333;
+            margin: 20px 0;
+        }
+
+        .board {
+            display: grid;
+            gap: 10px;
+            margin: 20px 0;
+            width: 250px;
+        }
+
+        .cell {
+            width: 80px;
+            height: 80px;
+            background-color: #fff;
+            border: none;
+            border-radius: 10px;
+            font-size: 36px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .cell:hover {
+            background-color: #e0e0e0;
+        }
+
+        .result {
+            margin-top: 20px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h1 class="game-title">Tic Tac Toe</h1>
+    <div class="board" id="board">
+        <input type="checkbox" class="cell" style="width: 80px; height: 80px;" 
+           placeholder="X" id="x1" name="player1" value="X">
+        <input type="checkbox" class="cell" style="width: 80px; height: 80px;" 
+           placeholder="O" id="o1" name="player2" value="O">
+        <input type="checkbox" class="cell" style="width: 80px; height: 80px;" 
+           placeholder="X" id="x2" name="player3" value="X">
+        
+        <input type="checkbox" class="cell" style="width: 80px; height: 80px;" 
+           placeholder="O" id="o2" name="player4" value="O">
+        <input type="checkbox" class="cell" style="width: 80px; height: 80px;" 
+           placeholder="X" id="x3" name="player5" value="X">
+        <input type="checkbox" class="cell" style="width: 80px; height: 80px;" 
+           placeholder="O" id="o3" name="player6" value="O">
+        
+        <input type="checkbox" class="cell" style="width: 80px; height: 80px;" 
+           placeholder="X" id="x4" name="player7" value="X">
+        <input type="checkbox" class="cell" style="width: 80px; height: 80px;" 
+           placeholder="O" id="o4" name="player8" value="O">
+        <input type="checkbox" class="cell" style="width: 80px; height: 80px;" 
+           placeholder="X" id="x5" name="player9" value="X">
+    </div>
+    <div id="result"></div>
+
+    <script>
+        const cells = document.querySelectorAll('.cell');
+        let currentPlayer = 'X';
+        let gameActive = true;
+        let gameWon = false;
+
+        function handleClick(e) {
+            const cell = e.target.closest('.cell');
+            if (cell && !gameWon && !gameActive) {
+                placeMark(cell, currentPlayer);
+                toggleTurn();
+                
+                checkWin();
+                checkDraw();
+                
+                updateResult();
+            }
+        }
+
+        function placeMark(cell, mark) {
+            cell.textContent = mark;
+            gameActive = true;
+        }
+
+        function toggleTurn() {
+            currentPlayer = currentPlayer === 'X' ? 'O' : 'X';
+            document.getElementById('result').textContent = 
+                `Player ${currentPlayer}'s turn`.
+        }
+
+        function checkWin() {
+            // Check rows
+            for (let i = 0; i < 3; i++) {
+                if (boardExists(i, currentPlayer)) return true;
+            }
+            
+            // Check columns
+            for (let j = 0; j < 3; j++) {
+                if (boardExists(j, currentPlayer)) return true;
+            }
+            
+            // Check diagonals
+            const diag1 = cells[0] && cells[4] && cells[8];
+            const diag2 = cells[2] && cells[4] && cells[6];
+            if ((diag1 && diag1[0].textContent === currentPlayer) ||
+                (diag2 && diag2[0].textContent === currentPlayer)) {
+                gameWon = true;
+                return true;
+            }
+
+            return false;
+        }
+
+        function checkDraw() {
+            for (let i = 0; i < 9; i++) {
+                if (!cells[i].textContent) return true;
+            }
+            gameActive = false;
+            gameWon = true;
+        }
+
+        function updateResult() {
+            document.getElementById('result').textContent = '';
+            if (gameWon) {
+                alert(`${currentPlayer} wins!`);
+            } else if (gameActive) {
+                alert('Game is a draw!');
+            } else {
+                alert('Congratulations! You won!');
+            }
+        }
+
+        cells.forEach(cell => cell.addEventListener('click', handleClick));
+    </script>
+</body>
+</html>

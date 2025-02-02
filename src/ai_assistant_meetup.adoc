@@ -172,11 +172,9 @@ Db should contain entity "movie" with properties:
 
 == Серверы MCP 
 
-MCP servers предоставляют дополнительные сервисы/расширения для Claude Desktop & Cline :
-- https://modelcontextprotocol.io/introduction
-- https://github.com/modelcontextprotocol/servers?tab=readme-ov-file
-- https://github.com/punkpeye/awesome-mcp-servers?tab=readme-ov-file
+image::img/mcp-diagram.png[width=50%]
 
+MCP servers это средство для расширения возможностей Cline и Claude Desktop.
 
 [.notes]
 --
@@ -233,6 +231,15 @@ MCP servers предоставляют дополнительные сервис
 
 - Ваша онлайн-жизнь под контролем ИИ: OpenAI запускает «Operator» : https://www.securitylab.ru/news/555727.php 
 
+=== MCP
+
+- https://modelcontextprotocol.io/introduction
+
+- https://github.com/modelcontextprotocol/servers?tab=readme-ov-file
+
+- https://github.com/punkpeye/awesome-mcp-servers?tab=readme-ov-file
+
+
 === Prompt ingeneering 
 
 - Описание личного опыта и практик работы с ИИ помощником : https://crawshaw.io/blog/programming-with-llms
@@ -242,6 +249,8 @@ MCP servers предоставляют дополнительные сервис
 - Промптинг: действительно полезное руководство : https://habr.com/ru/articles/865952/
 
 === Прочие статьи
+
+- LLM Leaderboard : https://huggingface.co/spaces/lmarena-ai/chatbot-arena-leaderboard
 
 - Автогенерация тестов для Java/Kotlin в IntelliJ IDEA: сравнение AI-инструментов : https://habr.com/ru/companies/explyt/articles/869198/
 
