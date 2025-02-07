@@ -77,6 +77,77 @@ npx asciidoctor-revealjs src/ai_assistant_meetup.adoc
 
 После сборки откройте `src/ai_assistant_meetup.html` в вашем веб-браузере для просмотра презентации.
 
-== Лицензия
+== Ссылки из презентации для удобства использования
 
-MIT
+=== Статьи на тему Claude / Cline & Cursor
+
+- Virtual Collaborators - анонс от основателя Anthropic : https://the-decoder.com/anthropic-ceo-expects-major-ai-breakthrough-plans-to-launch-virtual-collaborators/
+
+- Как Claude от Anthropic меняет правила игры для разработчиков программного обеспечения : https://habr.com/ru/companies/bothub/news/869104/
+
+- Google вкладывает еще 1 $Bln : https://habr.com/ru/news/875606/ 
+
+- Computer use : https://www.youtube.com/watch?v=VDmU0jjklBo
+
+=== Статьи на тему Copilot
+
+- GitHub Copilot : https://habr.com/ru/articles/674658/
+
+- Как использовать GitHub Copilot в IDE: советы, приёмы и лучшие практики (перевод) : https://habr.com/ru/companies/otus/articles/815083/ ( оригинал статьи: https://github.blog/developer-skills/github/how-to-use-github-copilot-in-your-ide-tips-tricks-and-best-practices/ )
+
+=== Cursor
+
+- The Ultimate Introduction to Cursor for Developers : https://www.builder.io/blog/cursor-ai-for-developers
+
+- Как ИИ-ассистенты меняют правила игры в разработке ПО — на примере Cursor - https://habr.com/ru/companies/inferit/articles/869880/
+
+- Сравнение Cursor & Windsurf : https://habr.com/ru/articles/879038/
+
+=== Статьи на тему продуктов OpenAI
+
+- Ваша онлайн-жизнь под контролем ИИ: OpenAI запускает «Operator» : https://www.securitylab.ru/news/555727.php 
+
+=== MCP
+
+- https://modelcontextprotocol.io/introduction
+
+- https://github.com/modelcontextprotocol/servers?tab=readme-ov-file
+
+- https://github.com/punkpeye/awesome-mcp-servers?tab=readme-ov-file
+
+
+=== Prompt ingeneering 
+
+- Описание личного опыта и практик работы с ИИ помощником : https://crawshaw.io/blog/programming-with-llms
+
+- Довольно долгий подкаст на тему промптинга : https://www.youtube.com/watch?v=T9aRN5JkmL8
+
+- Промптинг: действительно полезное руководство : https://habr.com/ru/articles/865952/
+
+=== Прочие статьи
+
+- Генеральный директор Anthropic о стоимости разработки Sonnet3.5 и о конкурентах : https://habr.com/ru/companies/bothub/news/878118/
+- LLM Leaderboard : https://huggingface.co/spaces/lmarena-ai/chatbot-arena-leaderboard
+
+- Автогенерация тестов для Java/Kotlin в IntelliJ IDEA: сравнение AI-инструментов : https://habr.com/ru/companies/explyt/articles/869198/
+
+- Неплохой обзор на Реддите : https://www.reddit.com/r/ChatGPTPro/comments/1bdxiur/top_ai_code_assistant/?rdt=33043
+
+- Я 8 часов тестировал модель o1 Pro за 200$ и сравнил ее с Claude Sonnet 3.5 за 20$ - https://habr.com/ru/articles/866168/
+
+- Топ-20 лучших научных статей об ИИ-агентах в 2024 году : https://habr.com/ru/articles/871104/
+
+- ChatGPT и его конкуренты: обзор пяти текстовых нейросетей : https://www.ixbt.com/live/sw/chatgpt-i-ego-konkurenty-obzor-pyati-tekstovyh-neyrosetey.html
+
+- 40 лучших ИИ-инструментов 2025 году (проверенные и протестированные) : https://habr.com/ru/articles/871268/ 
+
+- Killed by LLM (Разработчик представил проект Killed by LLM, где опубликованы бенчмарки, которые были побеждены прогрессом ИИ) : https://habr.com/ru/news/871838/ 
+
+- Claude сопротивляется : https://habr.com/ru/articles/869498/
+
+- Горькая правда о программировании с использованием ИИ : https://addyo.substack.com/p/the-70-problem-hard-truths-about
+
+- Ссылка на тикет в Youtrack AI Assistant : https://youtrack.jetbrains.com/issue/LLM-2402/Integrate-Claude.ai-LLM-models-with-AI-Assistant#focus=Change-27-11379104.0-0.pinned
+
+- Ссылка на видео этой презентации. Офис Мадженты, 2025 год: https://rutube.ru/video/f5be163728ae4e86a3851fc8269cfad3/
+
