@@ -137,6 +137,7 @@
 
 == Как работает ИИ помощник
 С помощью промптов и контекста вы говорите модели, что от неё требуется и она генерирует код.
+
 Чем больше контекста дать тем качественнее будет код.
 
 [.notes]
@@ -150,6 +151,7 @@
 == Живая демонстрация возможностей Claude/Cline
 
 Работа Claude в связке с VSCode+Cline.
+
 Задача: написать небольшую программу, которая будет вести базу данных фильмов в коллекции.
 
 Prompt:
@@ -227,6 +229,8 @@ MCP servers это средство для расширения возможно
 
 - Как ИИ-ассистенты меняют правила игры в разработке ПО — на примере Cursor - https://habr.com/ru/companies/inferit/articles/869880/
 
+- Сравнение Cursor & Windsurf : https://habr.com/ru/articles/879038/
+
 === Статьи на тему продуктов OpenAI
 
 - Ваша онлайн-жизнь под контролем ИИ: OpenAI запускает «Operator» : https://www.securitylab.ru/news/555727.php 
@@ -250,6 +254,7 @@ MCP servers это средство для расширения возможно
 
 === Прочие статьи
 
+- Генеральный директор Anthropic о стоимости разработки Sonnet3.5 и о конкурентах : https://habr.com/ru/companies/bothub/news/878118/
 - LLM Leaderboard : https://huggingface.co/spaces/lmarena-ai/chatbot-arena-leaderboard
 
 - Автогенерация тестов для Java/Kotlin в IntelliJ IDEA: сравнение AI-инструментов : https://habr.com/ru/companies/explyt/articles/869198/
