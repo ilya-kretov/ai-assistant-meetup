@@ -1,0 +1,18 @@
+{
+  "name": "demo-movies-db-3",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "setup": "node db/setup.js",
+    "start": "node server.js",
+    "dev": "node db/setup.js && node server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.21.2",
+    "sqlite3": "^5.1.7"
+  }
+}
